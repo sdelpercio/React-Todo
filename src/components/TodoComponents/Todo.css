@@ -1,6 +1,6 @@
 .item {
     text-decoration: none;
 }
-.itemcompleted {
+.itemCompleted {
     text-decoration: line-through;
 }

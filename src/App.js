@@ -26,6 +26,7 @@ class App extends React.Component {
     };
   }
 
+  // function to handle adding a new task to the list from input
   addToList = input => {
     const newTodo = {
       task: input,
@@ -37,6 +38,7 @@ class App extends React.Component {
     });
   }
 
+  // function to cross off a task
   toggleTask = taskID => {
     const newList = this.state.listOfTodos.map(item => {
       if (item.id === taskID) {
@@ -54,6 +56,16 @@ class App extends React.Component {
     })
   }
 
+  // function to clear crossed off tasks
+  clearCompleted = () => {
+    const narrowedList = this.state.listOfTodos.filter(item =>
+      item.completed === false
+    );
+    this.setState({
+      listOfTodos: narrowedList
+    })
+  }
+
   render() {
     return (
       <div>
@@ -62,7 +74,10 @@ class App extends React.Component {
           listOfTodos={this.state.listOfTodos} 
           toggleTask={this.toggleTask} 
         />
-        <TodoForm addToList={this.addToList}/>
+        <TodoForm 
+          addToList={this.addToList} 
+          clearCompleted={this.clearCompleted}
+        />
       </div>
     );
   }
