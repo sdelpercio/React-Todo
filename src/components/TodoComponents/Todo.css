@@ -1,0 +1,6 @@
+.item {
+    text-decoration: none;
+}
+.itemcompleted {
+    text-decoration: line-through;
+}
