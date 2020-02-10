@@ -1,19 +1,33 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import styled, {createGlobalStyle} from 'styled-components';
 
-const todos = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
+const GlobalStyle = createGlobalStyle`
+  html {
+    width: 100%;
+    height: 100vh;
+    font-size: 62.5%;
+    background-image: linear-gradient( 135deg, #92FFC0 10%, #002661 100%);
   }
-]
+`
+
+const StyledDiv = styled.div`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`
+const StyledTitle = styled.h2`
+  font-size: 4rem;
+  margin: 5% auto;
+  border-bottom: 1px solid black;
+  width: 400px;
+  text-align: center;
+`
+
+const todos = [];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -68,8 +82,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <StyledDiv>
+        <GlobalStyle />
+        <StyledTitle>Todo...</StyledTitle>
         <TodoList 
           listOfTodos={this.state.listOfTodos} 
           toggleTask={this.toggleTask} 
@@ -78,7 +93,7 @@ class App extends React.Component {
           addToList={this.addToList} 
           clearCompleted={this.clearCompleted}
         />
-      </div>
+      </StyledDiv>
     );
   }
 }

@@ -2,6 +2,14 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import Todo from './Todo';
+import styled from 'styled-components';
+
+const StyledList = styled.div`
+    margin-bottom: 5%;
+    width: 500px;
+    font-size: 2rem;
+    text-align: center;
+`
 
 class TodoList extends React.Component {
     // constructor() {
@@ -12,8 +20,7 @@ class TodoList extends React.Component {
     render() {
         return (
             <>
-                <h2>Todo List</h2>
-                <div>
+                <StyledList>
                     {
                         this.props.listOfTodos.map(item => (
                             <Todo 
@@ -23,7 +30,7 @@ class TodoList extends React.Component {
                             />
                         ))
                     }
-                </div>
+                </StyledList>
             </>
         );
     }
